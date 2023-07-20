@@ -79,6 +79,11 @@ const menuItems = ref([
     link: "/about",
     icon: "fa-regular fa-user",
   },
+  {
+    name: "Contact",
+    link: "/contact",
+    icon: "fa-solid fa-address-book",
+  },
 ]);
 
 // toggle light and dark mode
@@ -92,9 +97,10 @@ const isLightMode = () => {
   return colorMode.preference === "light";
 };
 onMounted(() => {
-  if (colorModeCookie.value) {
-    colorMode.preference = colorModeCookie.value;
+  if (!colorModeCookie.value) {
+    colorModeCookie.value = "light";
   }
+  colorMode.preference = colorModeCookie.value;
 });
 
 // toggle menu mobile

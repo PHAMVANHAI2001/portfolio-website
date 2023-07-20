@@ -2,7 +2,7 @@
   <div>
     <Preloader v-show="!preloading" />
     <div
-      class="min-h-screen w-full bg-home-light bg-cover bg-fixed bg-center bg-no-repeat dark:bg-home-dark lg:px-2 xl:px-20 pt-20 lg:pt-0">
+      class="min-h-screen w-full bg-home-light bg-cover bg-fixed bg-center bg-no-repeat dark:bg-home-dark lg:px-2 xl:px-20 pt-20 lg:pt-0 py-10">
       <Header />
       <slot />
     </div>
