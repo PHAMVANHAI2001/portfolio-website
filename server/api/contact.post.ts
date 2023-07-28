@@ -29,20 +29,20 @@ export default defineEventHandler(async (event) => {
     return false;
   }
 
-  //   const email_Template = (iContactData: IContactData){
-  //     iContactData.message = `<!DOCTYPE html>
-  // <html lang="en">
+  const email_Template = (iContactData: IContactData) => {
+    return `<!DOCTYPE html>
+  <html lang="en">
 
-  // <head>
-  //   <meta charset="UTF-8">
-  //   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  //   <title>Document</title>
-  // </head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
 
-  // <body>
-  //   <p style="white-space: pre-line;">${{body}}</p>
-  // </body>
+  <body>
+    <p style="white-space: pre-line;">${iContactData.message}</p>
+  </body>
 
-  // </html>`;
-  //   }
+  </html>`;
+  };
 });

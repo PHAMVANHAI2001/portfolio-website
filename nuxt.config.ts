@@ -23,10 +23,4 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: "page", mode: "out-in" },
   },
-  runtimeConfig: {
-    apiSecret: {
-      EMAIL_USER: "haipham2001vn@gmail.com",
-      EMAIL_PASS: "yuqtbwnrzyqsuayv",
-    },
-  },
 });
