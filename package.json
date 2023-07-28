@@ -13,12 +13,17 @@
     "@nuxtjs/color-mode": "^3.3.0",
     "@nuxtjs/tailwindcss": "^6.8.0",
     "@types/node": "^18",
+    "@types/nodemailer": "^6.4.9",
     "nuxt": "^3.6.1",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.3.0",
     "sass": "^1.63.6"
   },
   "dependencies": {
-    "animate.css": "^4.1.1"
+    "@vee-validate/nuxt": "^4.10.8",
+    "@vee-validate/yup": "^4.10.8",
+    "animate.css": "^4.1.1",
+    "handlebars": "^4.7.7",
+    "nodemailer": "^6.9.4"
   }
 }

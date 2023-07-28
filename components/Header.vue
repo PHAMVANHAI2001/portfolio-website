@@ -26,10 +26,10 @@
     <!-- header items two for large screens -->
     <nav class="hidden lg:block">
       <ul class="flex">
-        <li v-for="menuItem in menuItems" :key="menuItem">
-          <NuxtLink class="menu-items menu-item" :href="menuItem.link">
+        <li v-for="menuItem in menuItems" :key="menuItem.id">
+          <NuxtLink class="menu-items menu-item w-max" :href="menuItem.link">
             <span class="mr-2 text-base"> <i :class="menuItem.icon"></i> </span>
-            {{ menuItem.name }}
+            {{ menuItem.en_name }}
           </NuxtLink>
         </li>
         <!-- light and dark mode button -->
@@ -68,23 +68,8 @@
 </template>
 
 <script setup>
-const menuItems = ref([
-  {
-    name: "Home",
-    link: "/",
-    icon: "fa-solid fa-house",
-  },
-  {
-    name: "About",
-    link: "/about",
-    icon: "fa-regular fa-user",
-  },
-  {
-    name: "Contact",
-    link: "/contact",
-    icon: "fa-solid fa-address-book",
-  },
-]);
+const { data: categories } = await useFetch('/api/category');
+const menuItems = categories.value;
 
 // toggle light and dark mode
 const colorMode = useColorMode();
