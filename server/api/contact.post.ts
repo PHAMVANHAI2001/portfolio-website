@@ -1,26 +1,23 @@
 import { IContactData } from "~/types";
 import sendEmails from "../utils/send-emails";
-import { log } from "console";
 
 export default defineEventHandler(async (event) => {
   try {
-    const body: IContactData | null = await readBody(event);
-    if (!body) {
+    const dataForm: IContactData | null = await readBody(event);
+    if (!dataForm) {
       return false;
     }
-    const source = await useStorage().getItem(
-      "root:components:SendEmail:email-contact.html"
-    );
+    const source = email_Template(dataForm);
 
     if (source) {
       await sendEmails({
-        source: source as string,
+        source: source,
         head: {
           to: "haipham2001vn@gmail.com",
-          from: body.email,
+          from: dataForm.email,
           subject: "Thư mời hợp tác",
         },
-        body: { name: body.name, body: body.message },
+        body: { name: dataForm.name, body: dataForm.message },
       });
     }
     return true; // Success
@@ -29,7 +26,7 @@ export default defineEventHandler(async (event) => {
     return false;
   }
 
-  const email_Template = (iContactData: IContactData) => {
+  function email_Template(iContactData: IContactData) {
     return `<!DOCTYPE html>
   <html lang="en">
 
@@ -44,5 +41,5 @@ export default defineEventHandler(async (event) => {
   </body>
 
   </html>`;
-  };
+  }
 });
