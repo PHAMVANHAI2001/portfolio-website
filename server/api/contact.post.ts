@@ -17,7 +17,6 @@ export default defineEventHandler(async (event) => {
           from: dataForm.email,
           subject: "Thư mời hợp tác",
         },
-        body: { name: dataForm.name, body: dataForm.message },
       });
     }
     return true; // Success
